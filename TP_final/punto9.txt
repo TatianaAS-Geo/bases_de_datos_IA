@@ -1,0 +1,39 @@
+9. Número total de películas comentadas por usuario
+
+db.comments.aggregate([
+  {
+    $group: {
+      _id: "$email",
+      peliculasComentadas: { $addToSet: "$movie_id" }
+    }
+  },
+  {
+    $project: {
+      totalPeliculas: { $size: "$peliculasComentadas" }
+    }
+  },
+  { $sort: { totalPeliculas: -1 } }
+])
+
+{
+  _id: 'roger_ashton-griffiths@gameofthron.es',
+  totalPeliculas: 219
+}
+
+{
+  _id: 'nathalie_emmanuel@gameofthron.es',
+  totalPeliculas: 197
+}
+{
+  _id: 'paul_kaye@gameofthron.es',
+  totalPeliculas: 197
+}
+
+{
+  _id: 'sophie_turner@gameofthron.es',
+  totalPeliculas: 197
+}
+{
+  _id: 'denise_bryant@fakegmail.com',
+  totalPeliculas: 196
+}

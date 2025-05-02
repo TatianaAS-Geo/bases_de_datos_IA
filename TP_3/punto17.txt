@@ -1,0 +1,7 @@
+17. Contar los nodos en total.
+
+MATCH (n)
+RETURN COUNT(n)
+
+COUNT(n)
+58

@@ -1,0 +1,15 @@
+-- 14  Factura de mayor gasto (si varias, menor nroFactura)
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$nroFactura",
+      totalFactura: { $sum: { $multiply: ["$item.precio", "$item.cantidad"] } }
+  }},
+  { $sort: { totalFactura: -1, _id: 1 } },
+  { $limit: 1 }
+]);
+
+{
+  _id: 1002,
+  totalFactura: 1968
+}

@@ -1,0 +1,36 @@
+29. Conocimientos más compartidos por carrera.
+
+MATCH (p:Persona)-[:ESTUDIO]->(c:Carrera)
+MATCH (p)-[:POSEE]->(con:Conocimiento)
+RETURN c.nombre AS carrera, con.nombre AS conocimiento, COUNT(*) AS cantidad
+ORDER BY carrera, cantidad DESC
+
+	carrera	conocimiento	cantidad
+"Derecho"	"Revisión y elaboración de contratos"	1
+"Derecho"	"Creación de sociedades"	1
+"Derecho"	"Contestación de demandas"	1
+"Derecho"	"Gestión"	1
+"Ing en Sistemas de Información"	"Java"	3
+"Ing en Sistemas de Información"	"Análisis Funcional"	3
+"Ing en Sistemas de Información"	"Gestión de proyectos"	2
+"Ing en Sistemas de Información"	"PHP"	1
+"Ing en Sistemas de Información"	"C++"	1
+"Ing en Sistemas de Información"	"SQL"	1
+"Ing en Sistemas de Información"	"Revisión y elaboración de contratos"	1
+"Ing en Sistemas de Información"	"Evaluación de proveedores"	1
+"Ing en Sistemas de Información"	"Gestión de recursos"	1
+"Lic en Sist de Inf"	"PHP"	1
+"Lic en Sist de Inf"	"Java"	1
+"Lic en Sist de Inf"	"Análisis Funcional"	1
+"Lic en Sist de Inf"	"Gestión de proyectos"	1
+"Lic en Sist de Inf"	"C++"	1
+"Lic en Sist de Inf"	"SQL"	1
+"Lic en Sist de Inf"	"Evaluación de proveedores"	1
+"MBA"	"Java"	1
+"MBA"	"Análisis Funcional"	1
+"MBA"	"Gestión de proyectos"	1
+"MBA"	"Revisión y elaboración de contratos"	1
+"MBA"	"Evaluación de proveedores"	1
+"MBA"	"Gestión de recursos"	1
+"Tec. En Programación"	"C++"	1
+"Tec. En Programación"	"SQL"	1

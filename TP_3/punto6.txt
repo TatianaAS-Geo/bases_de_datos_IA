@@ -1,0 +1,24 @@
+6. Personas con nombre terminado en "a".
+
+MATCH (p:Persona)
+WHERE p.nombre ENDS WITH "a"
+RETURN p
+
+╒══════════════════════════════════════════════════════════════════════╕
+│p                                                                     │
+╞══════════════════════════════════════════════════════════════════════╡
+│(:Persona {apellido: "Díaz",fechanac: "10/12/1978",nombre: "Analía",em│
+│ail: "adiaz@hotmail.com",pais: "Argentina"})                          │
+├──────────────────────────────────────────────────────────────────────┤
+│(:Persona {apellido: "Dominguez",fechanac: "31/10/1990",nombre: "Maria│
+│na",email: "mariana@yahoo.com",pais: "Chile"})                        │
+├──────────────────────────────────────────────────────────────────────┤
+│(:Persona {apellido: "Ferreira",fechanac: "07/04/1972",nombre: "Natali│
+│a",email: "nf@hotmail.com",pais: "Argentina"})                        │
+├──────────────────────────────────────────────────────────────────────┤
+│(:Persona {apellido: "González",fechanac: "09/11/1974",nombre: "Bibian│
+│a",email: "bibiana@live.com.ar",pais: "España"})                      │
+├──────────────────────────────────────────────────────────────────────┤
+│(:Persona {apellido: "Mendez",fechanac: "28/02/1968",nombre: "Verónica│
+│",email: "veromendi@yahoo.com.ar",pais: "Argentina"})                 │
+└──────────────────────────────────────────────────────────────────────┘

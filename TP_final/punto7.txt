@@ -1,0 +1,21 @@
+7. Número promedio de miembros del reparto para películas después del 2000
+
+db.movies.aggregate([
+  { $match: { year: { $gt: 2000 } } },
+  {
+    $project: {
+      castCount: { $size: { $ifNull: ["$cast", []] } }
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      avgCast: { $avg: "$castCount" }
+    }
+  }
+])
+
+{
+  _id: null,
+  avgCast: 3.8223223223223224
+}

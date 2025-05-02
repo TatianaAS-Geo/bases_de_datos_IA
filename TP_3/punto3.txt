@@ -1,0 +1,14 @@
+3. Obtener la lista de empresas en las que trabajó Domínguez.
+
+MATCH (p:Persona {apellido: "Dominguez"})-[:TRABAJO]->(e:Empresa)
+RETURN e.nombre
+
+╒══════════════╕
+│e.nombre      │
+╞══════════════╡
+│"Lan"         │
+├──────────────┤
+│"Banco Nación"│
+├──────────────┤
+│"Claro"       │
+└──────────────┘

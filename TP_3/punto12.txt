@@ -1,0 +1,7 @@
+12. Crear relación CONOCE_A entre Analía y Verónica una sola vez.
+
+MATCH (a:Persona {nombre: "Analía", apellido: "Martinelli"})
+MATCH (v:Persona {nombre: "Verónica", apellido: "Mendez"})
+MERGE (a)-[:CONOCE_A]->(v)
+
+Created 1 relationship, completed after 16 ms.

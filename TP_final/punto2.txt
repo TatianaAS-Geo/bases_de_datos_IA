@@ -1,0 +1,37 @@
+2. Calificación promedio de IMDb por género
+
+db.movies.aggregate([
+  { $unwind: "$genres" },
+  {
+    $group: {
+      _id: "$genres",
+      avgRating: { $avg: "$imdb.rating" }
+    }
+  },
+  { $sort: { avgRating: -1 } }
+])
+
+
+{
+  _id: 'Film-Noir',
+  avgRating: 7.397402597402598
+}
+
+{
+  _id: 'Short',
+  avgRating: 7.377574370709382
+}
+
+{
+  _id: 'Documentary',
+  avgRating: 7.365679824561403
+}
+
+{
+  _id: 'News',
+  avgRating: 7.252272727272728
+}
+{
+  _id: 'History',
+  avgRating: 7.1696100917431185
+}

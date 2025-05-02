@@ -1,0 +1,38 @@
+3. Top 5 películas con más alta calificación en IMDb
+
+db.movies.find(
+  { "imdb.rating": { $ne: null } },
+  { title: 1, "imdb.rating": 1 }
+).sort({ "imdb.rating": -1 }).limit(5)
+
+{
+  _id: ObjectId('573a13b8f29313caabd4d540'),
+  title: 'The Danish Girl',
+  imdb: {
+    rating: ''
+  }
+}
+
+{
+  _id: ObjectId('573a13b3f29313caabd3c7ac'),
+  title: 'Landet som icke èr',
+  imdb: {
+    rating: ''
+  }
+}
+
+
+  _id: ObjectId('573a13cff29313caabd88f5b'),
+  title: 'Scouts Guide to the Zombie Apocalypse',
+  imdb: {
+    rating: ''
+  }
+}
+
+{
+  _id: ObjectId('573a13cef29313caabd86ddc'),
+  title: 'Catching the Sun',
+  imdb: {
+    rating: ''
+  }
+}

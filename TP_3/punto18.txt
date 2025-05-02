@@ -1,0 +1,11 @@
+18. Contar los tipos de relaciones.
+
+MATCH ()-[r]->() RETURN TYPE(r) AS tipo, COUNT(*) AS cantidad
+
+tipo	cantidad
+"TRABAJO"	22
+"POSEE"	33
+"ESTUDIO"	11
+"CONOCE_A"	5
+"DICTADA_EN"	9
+Started streaming 5 records after 114 ms and completed after 129 ms.

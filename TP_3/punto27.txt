@@ -1,0 +1,34 @@
+27. Listar caminos de relaciones de un camino determinado.
+
+MATCH p=(a:Persona {nombre: "Gustavo"})-[:CONOCE_A*..5]-(b:Persona {nombre: "Mario"})
+RETURN relationships(p)
+
+[
+{
+  "identity": 1155177702467043328,
+  "start": 0,
+  "end": 8,
+  "type": "CONOCE_A",
+  "properties": {
+    "motivo": "Estudio",
+    "fechad": "1994"
+  },
+  "elementId": "5:13af1b38-6144-4a56-90ff-72bb09e9f3d1:1155177702467043328",
+  "startNodeElementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:0",
+  "endNodeElementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:8"
+}
+, 
+{
+  "identity": 1152925902653358088,
+  "start": 8,
+  "end": 4,
+  "type": "CONOCE_A",
+  "properties": {
+    "motivo": "Estudio",
+    "fechad": "1994"
+  },
+  "elementId": "5:13af1b38-6144-4a56-90ff-72bb09e9f3d1:1152925902653358088",
+  "startNodeElementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:8",
+  "endNodeElementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:4"
+}
+]

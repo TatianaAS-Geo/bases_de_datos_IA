@@ -1,0 +1,5 @@
+19. Listar todos los nodos y sus relaciones.
+
+MATCH (n)-[r]->(m)
+RETURN n, r, m
+

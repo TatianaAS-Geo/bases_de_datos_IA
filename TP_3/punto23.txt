@@ -1,0 +1,11 @@
+23. Usar UNWIND para transformar colección en filas.
+
+WITH ["Java", "Python", "PHP"] AS lenguajes
+UNWIND lenguajes AS lenguaje
+RETURN lenguaje
+
+
+lenguaje
+"Java"
+"Python"
+"PHP"

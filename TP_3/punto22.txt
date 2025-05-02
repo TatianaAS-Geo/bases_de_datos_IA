@@ -1,0 +1,7 @@
+22. Verificar etiquetas de carrera en relación ESTUDIO.
+
+MATCH (:Persona)-[:ESTUDIO]->(c)
+RETURN DISTINCT labels(c)
+
+labels(c)
+["Carrera"]

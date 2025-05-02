@@ -1,0 +1,14 @@
+28. Verificar empresas comunes entre dos personas.
+
+MATCH (a:Persona {apellido: "Corrado"})-[:TRABAJO]->(e:Empresa)<-[:TRABAJO]-(b:Persona)
+WHERE a <> b
+RETURN b.nombre, b.apellido, e.nombre AS empresa
+
+
+	b.nombre	b.apellido	empresa
+"Verónica"	"Mendez"	"Telefónica de Argentina"
+"Verónica"	"Mendez"	"Accenture"
+"Mariana"	"Dominguez"	"Banco Nación"
+"Mario"	"López"	"Banco Nación"
+"Mario"	"López"	"Banco Nación"
+"Natalia"	"Ferreira"	"Banco Nación"

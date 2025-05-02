@@ -1,0 +1,7 @@
+24. Contar personas que estudiaron una carrera (cualquier estado).
+
+MATCH (p:Persona)-[:ESTUDIO]->(:Carrera)
+RETURN COUNT(DISTINCT p)
+
+COUNT(DISTINCT p)
+8

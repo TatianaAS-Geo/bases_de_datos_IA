@@ -1,0 +1,21 @@
+20. Nombres y rubros de empresas, reemplazando “Telefonía” por “IT”.
+
+MATCH (e:Empresa)
+RETURN e.nombre, 
+       CASE e.rubro 
+         WHEN "Telefonía" THEN "IT" 
+         ELSE e.rubro 
+       END AS rubro
+
+e.nombre	rubro
+"Telefónica de Argentina"	"IT"
+"Accenture"	"Consultoría"
+"CSF"	"Gestión de Información Farmacéutica"
+"Chevron"	"Petrolera"
+"Lan"	"Aviación"
+"Gomez & Asoc"	"Reventa"
+"Alteon"	"Capacitación"
+"IBM"	"IT"
+"Banco Nación"	"Banco"
+"Carrefour"	"Supermercado"
+"Claro"	"IT"

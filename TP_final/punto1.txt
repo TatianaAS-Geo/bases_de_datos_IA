@@ -1,0 +1,68 @@
+1. Número de películas lanzadas cada año
+
+db.movies.aggregate([
+  {
+    $group: {
+      _id: "$year",
+      total: { $sum: 1 }
+    }
+  },
+  { $sort: { _id: 1 } }
+])
+
+{
+  _id: 1896,
+  total: 2
+}
+
+{
+  _id: 1903,
+  total: 1
+}
+
+{
+  _id: 1909,
+  total: 1
+}
+
+{
+  _id: 1911,
+  total: 2
+}
+
+{
+  _id: 1913,
+  total: 1
+}
+
+{
+  _id: 1914,
+  total: 3
+}
+
+{
+  _id: 1915,
+  total: 2
+}
+
+{
+  _id: 1916,
+  total: 2
+}
+
+{
+  _id: 1917,
+  total: 2
+}
+
+{
+  _id: 1918,
+  total: 1
+}
+
+{
+  _id: 1919,
+  total: 1
+}
+
+

@@ -1,0 +1,46 @@
+-- 11. Productos ordenados por cantidad de personas distintas que lo compraron
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$item.producto",
+      personas: { $addToSet: "$cliente.cuit" }
+  }},
+  { $project: {
+      producto: "$_id",
+      cantidadPersonas: { $size: "$personas" }
+  }},
+  { $sort: { cantidadPersonas: -1 } }
+]);
+
+{
+  _id: 'TALADRO 12mm',
+  producto: 'TALADRO 12mm',
+  cantidadPersonas: 2
+}
+
+{
+  _id: 'TUERCA 2mm',
+  producto: 'TUERCA 2mm',
+  cantidadPersonas: 2
+}
+{
+  _id: 'SET HERRAMIENTAS',
+  producto: 'SET HERRAMIENTAS',
+  cantidadPersonas: 2
+}
+{
+  _id: ' CORREA 12mm',
+  producto: ' CORREA 12mm',
+  cantidadPersonas: 1
+}
+{
+  _id: 'TUERCA 5mm',
+  producto: 'TUERCA 5mm',
+  cantidadPersonas: 1
+}
+{
+  _id: 'CORREA 10mm',
+  producto: 'CORREA 10mm',
+  cantidadPersonas: 1
+}
+

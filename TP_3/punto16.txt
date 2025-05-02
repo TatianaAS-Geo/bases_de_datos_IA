@@ -1,0 +1,6 @@
+16. Eliminar el nodo de Analía y todas sus relaciones.
+
+MATCH (p {nombre: "Analía", apellido: "Martinelli"})
+DETACH DELETE p
+
+Deleted 1 node, deleted 2 relationships, completed after 14 ms.

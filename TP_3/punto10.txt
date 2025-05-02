@@ -1,0 +1,7 @@
+10. Crear relación ESTUDIO entre Analía Martinelli y "Lic en Sist de Inf".
+
+MATCH (p:Persona {nombre: "Analía", apellido: "Martinelli"})
+MATCH (c:Carrera {nombre: "Lic en Sist de Inf"})
+MERGE (p)-[:ESTUDIO {estado: "En curso"}]->(c)
+
+Set 1 property, created 1 relationship, completed after 34 ms.

@@ -1,0 +1,87 @@
+10. Películas del género "Western" con comentarios previos a 2020
+
+db.movies.aggregate([
+  { $match: { genres: "Western" } },
+  {
+    $lookup: {
+      from: "comments",
+      localField: "_id",
+      foreignField: "movie_id",
+      as: "comentarios"
+    }
+  },
+  {
+    $project: {
+      title: 1,
+      comentarios: {
+        $filter: {
+          input: "$comentarios",
+          as: "comentario",
+          cond: { $lt: ["$$comentario.date", ISODate("2020-01-01T00:00:00Z")] }
+        }
+      }
+    }
+  },
+  { $match: { "comentarios.0": { $exists: true } } }
+])
+
+
+{
+  _id: ObjectId('573a1391f29313caabcd95f6'),
+  title: 'Cimarron',
+  comentarios: [
+    {
+      _id: ObjectId('5a9427648b0beebeb6957ce5'),
+      name: 'Tommen Baratheon',
+      email: 'dean-charles_chapman@gameofthron.es',
+      movie_id: ObjectId('573a1391f29313caabcd95f6'),
+      text: 'Eaque quia a fuga non. Possimus facere natus omnis. Perspiciatis magnam est illo ipsum ullam at reprehenderit. Quidem distinctio sapiente eos velit mollitia iure qui.',
+      date: 2001-04-02T04:43:49.000Z
+    }
+  ]
+}
+
+{
+  _id: ObjectId('573a1392f29313caabcda654'),
+  title: 'Viva Villa!',
+  comentarios: [
+    {
+      _id: ObjectId('5a9427648b0beebeb6957efb'),
+      name: 'Osha',
+      email: 'natalia_tena@gameofthron.es',
+      movie_id: ObjectId('573a1392f29313caabcda654'),
+      text: 'Voluptatem quae pariatur ut rem laudantium. Quasi sed iste ipsum laborum. Quia placeat qui vero adipisci.',
+      date: 1973-02-23T15:15:58.000Z
+    }
+  ]
+}
+
+{
+    _id: ObjectId('573a1393f29313caabcdd852'),
+    title: 'My Darling Clementine',
+    comentarios: [
+      {
+        _id: ObjectId('5a9427648b0beebeb6958765'),
+        name: 'Maester Luwin',
+        email: 'donald_sumpter@gameofthron.es',
+        movie_id: ObjectId('573a1393f29313caabcdd852'),
+        text: 'Fugiat deleniti accusamus totam accusantium dolores maxime porro. Error praesentium ipsa magnam sequi perferendis. Accusantium placeat assumenda deleniti vel corrupti dignissimos natus.',
+        date: 1976-09-01T12:57:09.000Z
+      }
+    ]
+  }
+
+  {
+    _id: ObjectId('573a1393f29313caabcdda18'),
+    title: 'Bowery Buckaroos',
+    comentarios: [
+      {
+        _id: ObjectId('5a9427648b0beebeb69587bd'),
+        name: 'Tormund Giantsbane',
+        email: 'kristofer_hivju@gameofthron.es',
+        movie_id: ObjectId('573a1393f29313caabcdda18'),
+        text: 'Commodi eum ipsa aliquid nisi officiis. Recusandae nemo rem natus magni nemo sit aliquid consequatur. Explicabo nemo expedita magni animi atque at mollitia.',
+        date: 1977-03-02T18:10:37.000Z
+      }
+    ]
+  }  

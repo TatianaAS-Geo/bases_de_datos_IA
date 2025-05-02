@@ -1,0 +1,19 @@
+11. Crear nodo para Verónica Mendez.
+
+MERGE (p:Persona {nombre: "Verónica", apellido: "Mendez"})
+RETURN p
+
+{
+  "identity": 9,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "Mendez",
+    "fechanac": "28/02/1968",
+    "nombre": "Verónica",
+    "email": "veromendi@yahoo.com.ar",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:9"
+}

@@ -1,0 +1,14 @@
+-- 6. Cantidad de clientes que cumplen condición anterior
+db.facturas.aggregate([
+  { $group: {
+      _id: {
+          cuit: "$cliente.cuit",
+          apellido: "$cliente.apellido",
+          nombre: "$cliente.nombre",
+          region: "$cliente.region"
+      }
+  }},
+  { $match: { "_id.cuit": { $gt: 27000000000 } } },
+  { $count: "cantidadClientes" }
+]);
+-- Dado que no hay clientes con dicha condición da 0

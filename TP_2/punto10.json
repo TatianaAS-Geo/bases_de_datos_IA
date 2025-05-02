@@ -1,0 +1,56 @@
+-- 10. Productos con array de personas que lo compraron
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$item.producto",
+      personas: { $addToSet: { $concat: ["$cliente.nombre", " ", "$cliente.apellido"] } }
+  }},
+  { $project: {
+      producto: "$_id",
+      personas: 1,
+      _id: 0
+  }}
+]);
+{
+  personas: [
+    'Martin Zavasi',
+    'Juan Manuel Manoni'
+  ],
+  producto: 'TUERCA 2mm'
+}
+
+{
+  personas: [
+    'Juan Manuel Manoni',
+    'Marina Malinez'
+  ],
+  producto: 'TALADRO 12mm'
+}
+
+{
+  personas: [
+    'Juan Manuel Manoni'
+  ],
+  producto: 'TUERCA 5mm'
+}
+
+{
+  personas: [
+    'Martin Zavasi'
+  ],
+  producto: 'CORREA 10mm'
+}
+
+{
+  personas: [
+    'Marina Malinez'
+  ],
+  producto: ' CORREA 12mm'
+}
+{
+  personas: [
+    'Soledad Lavagno',
+    'Juan Manuel Manoni'
+  ],
+  producto: 'SET HERRAMIENTAS'
+}

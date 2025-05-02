@@ -1,0 +1,13 @@
+-- 17. Clientes que gastaron 100000 o más en una orden
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$nroFactura",
+      cliente: { $first: { $concat: ["$cliente.nombre", " ", "$cliente.apellido"] } },
+      totalFactura: { $sum: { $multiply: ["$item.precio", "$item.cantidad"] } }
+  }},
+  { $match: { totalFactura: { $gte: 100000 } } },
+  { $project: { cliente: 1, nroFactura: "$_id", totalFactura: 1, _id: 0 } }
+]);
+
+-- no hay resultado

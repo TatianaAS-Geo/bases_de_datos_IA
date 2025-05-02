@@ -1,0 +1,10 @@
+7. Crear nodo para Analía Martinelli si no existe.
+
+MERGE (p:Persona {nombre: "Analía", apellido: "Martinelli"})
+RETURN p
+
+╒════════════════════════════════════════════════════╕
+│p                                                   │
+╞════════════════════════════════════════════════════╡
+│(:Persona {apellido: "Martinelli",nombre: "Analía"})│
+└────────────────────────────────────────────────────┘

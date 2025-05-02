@@ -1,0 +1,49 @@
+4. Número total de películas y duración promedio por director
+db.movies.aggregate([
+  {
+    $group: {
+      _id: "$directors",
+      totalPeliculas: { $sum: 1 },
+      avgDuracion: { $avg: "$runtime" }
+    }
+  },
+  { $sort: { totalPeliculas: -1 } }
+])
+
+
+
+{
+  _id: null,
+  totalPeliculas: 242,
+  avgDuracion: 228.4834123222749
+}
+
+{
+  _id: [
+    'Woody Allen'
+  ],
+  totalPeliculas: 39,
+  avgDuracion: 95.35897435897436
+}
+
+{
+  _id: [
+    'Takashi Miike'
+  ],
+  totalPeliculas: 30,
+  avgDuracion: 116.7
+}
+{
+  _id: [
+    'Martin Scorsese'
+  ],
+  totalPeliculas: 29,
+  avgDuracion: 138.17241379310346
+}
+{
+  _id: [
+    'Sidney Lumet'
+  ],
+  totalPeliculas: 28,
+  avgDuracion: 122.03571428571429
+}

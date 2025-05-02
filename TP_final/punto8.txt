@@ -1,0 +1,20 @@
+8. Calificación promedio de IMDb y número de comentarios
+
+db.movies.aggregate([
+  {
+    $lookup: {
+      from: "comments",
+      localField: "_id",
+      foreignField: "movie_id",
+      as: "comentarios"
+    }
+  },
+  {
+    $project: {
+      title: 1,
+      imdbRating: "$imdb.rating",
+      numComentarios: { $size: "$comentarios" }
+    }
+  },
+  { $sort: { numComentarios: -1 } }
+])

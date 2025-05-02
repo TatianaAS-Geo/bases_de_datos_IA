@@ -1,0 +1,10 @@
+9. Verificar si se creó duplicado del conocimiento "Cálculo".
+
+MATCH (c:Conocimiento {nombre: "Cálculo"})
+RETURN COUNT(c)
+
+╒════════╕
+│COUNT(c)│
+╞════════╡
+│0       │
+└────────┘

@@ -1,0 +1,55 @@
+-- Reporte con nro. cuit, apellido, nombre, región y cantidad de facturas, ordenado por apellido
+
+db.facturas.aggregate([
+  { 
+    $group: {
+      _id: {
+        cuit: "$cliente.cuit",
+        apellido: "$cliente.apellido",
+        nombre: "$cliente.nombre",
+        region: "$cliente.region"
+      },
+      cantidadFacturas: { $sum: 1 }
+    }
+  },
+  { $sort: { "_id.apellido": 1 } }
+]);
+
+{
+  _id: {
+    cuit: 2729887543,
+    apellido: 'Lavagno',
+    nombre: 'Soledad',
+    region: 'NOA'
+  },
+  cantidadFacturas: 14
+}
+
+{
+  _id: {
+    cuit: 2740488484,
+    apellido: 'Malinez',
+    nombre: 'Marina',
+    region: 'CENTRO'
+  },
+  cantidadFacturas: 15
+}
+{
+    _id: {
+      cuit: 2029889382,
+      apellido: 'Manoni',
+      nombre: 'Juan Manuel',
+      region: 'NEA'
+    },
+    cantidadFacturas: 42
+  }
+  {
+    _id: {
+      cuit: 2038373771,
+      apellido: 'Zavasi',
+      nombre: 'Martin',
+      region: 'CABA'
+    },
+    cantidadFacturas: 29
+  }
+

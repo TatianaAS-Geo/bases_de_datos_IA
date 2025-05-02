@@ -1,0 +1,48 @@
+
+-- Producto y cantiad de facturas en las que hubo compras ordenadas por la canitda de facturas de forma desc
+
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$item.producto",
+      cantidadFacturas: { $addToSet: "$nroFactura" }
+  }},
+  { $project: {
+      producto: "$_id",
+      cantidadFacturas: { $size: "$cantidadFacturas" }
+  }},
+  { $sort: { cantidadFacturas: -1 } }
+]);
+
+{
+  _id: 'TALADRO 12mm',
+  producto: 'TALADRO 12mm',
+  cantidadFacturas: 43
+}
+
+{
+  _id: 'CORREA 10mm',
+  producto: 'CORREA 10mm',
+  cantidadFacturas: 29
+}
+
+{
+  _id: 'TUERCA 2mm',
+  producto: 'TUERCA 2mm',
+  cantidadFacturas: 28
+}
+{
+  _id: 'TUERCA 5mm',
+  producto: 'TUERCA 5mm',
+  cantidadFacturas: 28
+}
+{
+  _id: 'SET HERRAMIENTAS',
+  producto: 'SET HERRAMIENTAS',
+  cantidadFacturas: 28
+}
+{
+  _id: ' CORREA 12mm',
+  producto: ' CORREA 12mm',
+  cantidadFacturas: 15
+}

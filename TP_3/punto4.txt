@@ -1,0 +1,17 @@
+4. Personas que estudiaron carreras no universitarias y los nombres de las carreras.
+
+MATCH (p:Persona)-[:ESTUDIO]->(c:Carrera)
+WHERE c.nivel <> "Universitario"
+RETURN p.nombre, p.apellido, c.nombre
+
+╒═════════╤══════════╤══════════════════════╕
+│p.nombre │p.apellido│c.nombre              │
+╞═════════╪══════════╪══════════════════════╡
+│"Mario"  │"López"   │"Comercialización"    │
+├─────────┼──────────┼──────────────────────┤
+│"Mario"  │"López"   │"MBA"                 │
+├─────────┼──────────┼──────────────────────┤
+│"Jorge"  │"Lupis"   │"MBA"                 │
+├─────────┼──────────┼──────────────────────┤
+│"Eduardo"│"García"  │"Tec. En Programación"│
+└─────────┴──────────┴──────────────────────┘

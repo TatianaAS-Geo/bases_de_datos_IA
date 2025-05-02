@@ -1,0 +1,10 @@
+2. Obtener el nombre y fecha de nacimiento de la persona de apellido Domínguez.
+
+MATCH (p:Persona {apellido: "Dominguez"})
+RETURN p.nombre, p.fechanac
+
+╒═════════╤════════════╕
+│p.nombre │p.fechanac  │
+╞═════════╪════════════╡
+│"Mariana"│"31/10/1990"│
+└─────────┴────────────┘

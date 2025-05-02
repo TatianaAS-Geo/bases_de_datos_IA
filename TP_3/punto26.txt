@@ -1,0 +1,5 @@
+26. Camino más corto entre Gustavo y Mario en CONOCE_A.
+
+MATCH (a:Persona {nombre: "Gustavo"}), (b:Persona {nombre: "Mario"})
+MATCH p=shortestPath((a)-[:CONOCE_A*]-(b))
+RETURN p

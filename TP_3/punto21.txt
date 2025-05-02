@@ -1,0 +1,7 @@
+21. Etiquetas de nodos destino en relación ESTUDIO.
+
+MATCH ()-[:ESTUDIO]->(n)
+RETURN DISTINCT labels(n)
+
+labels(n)
+["Carrera"]

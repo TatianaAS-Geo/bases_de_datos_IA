@@ -1,0 +1,12 @@
+30. Top 2 conocimientos de "Ing en Sistemas de Información".
+
+MATCH (p:Persona)-[:ESTUDIO]->(c:Carrera {nombre: "Ing en Sistemas de Información"})
+MATCH (p)-[:POSEE]->(con:Conocimiento)
+RETURN con.nombre AS conocimiento, COUNT(*) AS cantidad
+ORDER BY cantidad DESC
+LIMIT 2
+
+
+conocimiento	cantidad
+"Java"	3
+"Análisis Funcional"	3

@@ -1,0 +1,146 @@
+1. Obtener los nodos de todas las personas de la red.
+
+MATCH (p:Persona) RETURN p
+
+
+  "identity": 0,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "Corrado",
+    "fechanac": "01/08/1966",
+    "nombre": "Gustavo",
+    "email": "gustavo.corrado@gmail.com",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:0"
+}
+{
+  "identity": 1,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "Díaz",
+    "fechanac": "10/12/1978",
+    "nombre": "Analía",
+    "email": "adiaz@hotmail.com",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:1"
+}
+{
+  "identity": 2,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "Dominguez",
+    "fechanac": "31/10/1990",
+    "nombre": "Mariana",
+    "email": "mariana@yahoo.com",
+    "pais": "Chile"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:2"
+}
+{
+  "identity": 3,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "Pereyra",
+    "fechanac": "18/05/1993",
+    "nombre": "Claudio",
+    "email": "cpereyra30@yahoo.com.ar",
+    "pais": "Estados Unidos"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:3"
+}
+{
+  "identity": 4,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "López",
+    "fechanac": "11/02/1970",
+    "nombre": "Mario",
+    "email": "mario.lopez@gmail.com",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:4"
+}
+{
+  "identity": 5,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "Ferreira",
+    "fechanac": "07/04/1972",
+    "nombre": "Natalia",
+    "email": "nf@hotmail.com",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:5"
+}
+{
+  "identity": 6,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "García",
+    "fechanac": "23/01/1985",
+    "nombre": "Eduardo",
+    "email": "garcia@live.com.ar",
+    "pais": "Chile"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:6"
+}
+{
+  "identity": 7,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "González",
+    "fechanac": "09/11/1974",
+    "nombre": "Bibiana",
+    "email": "bibiana@live.com.ar",
+    "pais": "España"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:7"
+}
+{
+  "identity": 8,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "Lupis",
+    "fechanac": "27/09/1980",
+    "nombre": "Jorge",
+    "email": "jlup@gmail.com",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:8"
+}
+{
+  "identity": 9,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "apellido": "Mendez",
+    "fechanac": "28/02/1968",
+    "nombre": "Verónica",
+    "email": "veromendi@yahoo.com.ar",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:9"
+}
+
+

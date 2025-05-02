@@ -1,0 +1,24 @@
+-- 18. Total facturado por localidad
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$cliente.region",
+      totalFacturado: { $sum: { $multiply: ["$item.precio", "$item.cantidad"] } }
+  }}
+]);
+{
+  _id: 'NOA',
+  totalFacturado: 9800
+}
+{
+  _id: 'CABA',
+  totalFacturado: 31572
+}
+{
+  _id: 'CENTRO',
+  totalFacturado: 10320
+}
+{
+  _id: 'NEA',
+  totalFacturado: 56700
+}

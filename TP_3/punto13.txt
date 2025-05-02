@@ -1,0 +1,18 @@
+13. Crear o actualizar nodo de Analía Martinelli con fecha de nacimiento.
+
+MERGE (p:Persona {nombre: "Analía", apellido: "Martinelli"})
+SET p.fechanac = "30/06/1968"
+RETURN p
+
+{
+  "identity": 58,
+  "labels": [
+    "Persona"
+  ],
+  "properties": {
+    "fechanac": "30/06/1968",
+    "apellido": "Martinelli",
+    "nombre": "Analía"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:58"
+}

@@ -1,0 +1,29 @@
+-- 13. Promedio de gasto por factura por región
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$nroFactura",
+      region: { $first: "$cliente.region" },
+      totalFactura: { $sum: { $multiply: ["$item.precio", "$item.cantidad"] } }
+  }},
+  { $group: {
+      _id: "$region",
+      promedioGastoFactura: { $avg: "$totalFactura" }
+  }}
+]);
+{
+  _id: 'CENTRO',
+  promedioGastoFactura: 688
+}
+{
+  _id: 'CABA',
+  promedioGastoFactura: 1088.6896551724137
+}
+{
+  _id: 'NEA',
+  promedioGastoFactura: 1350
+}
+{
+  _id: 'NOA',
+  promedioGastoFactura: 700
+}

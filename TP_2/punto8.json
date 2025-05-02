@@ -1,0 +1,39 @@
+-- 8. Total comprado y total ingresos por producto
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$item.producto",
+      totalCantidad: { $sum: "$item.cantidad" },
+      totalIngresos: { $sum: { $multiply: ["$item.precio", "$item.cantidad"] } }
+  }}
+]);
+{
+  _id: ' CORREA 12mm',
+  totalCantidad: 165,
+  totalIngresos: 2970
+}
+{
+  _id: 'TALADRO 12mm',
+  totalCantidad: 43,
+  totalIngresos: 21070
+}
+{
+  _id: 'TUERCA 2mm',
+  totalCantidad: 112,
+  totalIngresos: 6720
+}
+{
+  _id: 'TUERCA 5mm',
+  totalCantidad: 350,
+  totalIngresos: 31500
+}
+{
+  _id: 'TUERCA 5mm',
+  totalCantidad: 350,
+  totalIngresos: 31500
+}
+{
+  _id: 'CORREA 10mm',
+  totalCantidad: 198,
+  totalIngresos: 26532
+}

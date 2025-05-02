@@ -1,0 +1,28 @@
+
+-- Región y cantidad total de productos vendidos a clientes de esa región
+
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { 
+    $group: {
+      _id: "$cliente.region",
+      totalProductosVendidos: { $sum: "$item.cantidad" }
+    }
+  }
+]); 
+{
+  _id: 'CABA',
+  totalProductosVendidos: 282
+}
+{
+  _id: 'NOA',
+  totalProductosVendidos: 14
+}
+{
+  _id: 'NEA',
+  totalProductosVendidos: 420
+}
+{
+  _id: 'CENTRO',
+  totalProductosVendidos: 180
+}

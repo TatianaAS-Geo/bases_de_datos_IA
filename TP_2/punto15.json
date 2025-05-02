@@ -1,0 +1,45 @@
+-- 15. Clientes y su máxima factura
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: { cuit: "$cliente.cuit", nombreCompleto: { $concat: ["$cliente.nombre", " ", "$cliente.apellido"] } },
+      nroFactura: { $first: "$nroFactura" },
+      totalFactura: { $sum: { $multiply: ["$item.precio", "$item.cantidad"] } }
+  }},
+  { $sort: { "_id.nombreCompleto": 1, totalFactura: -1 } }
+]);
+
+{
+  _id: {
+    cuit: 2029889382,
+    nombreCompleto: 'Juan Manuel Manoni'
+  },
+  nroFactura: 1066,
+  totalFactura: 56700
+}
+
+{
+  _id: {
+    cuit: 2740488484,
+    nombreCompleto: 'Marina Malinez'
+  },
+  nroFactura: 1063,
+  totalFactura: 10320
+}
+{
+  _id: {
+    cuit: 2038373771,
+    nombreCompleto: 'Martin Zavasi'
+  },
+  nroFactura: 1064,
+  totalFactura: 31572
+}
+{
+  _id: {
+    cuit: 2729887543,
+    nombreCompleto: 'Soledad Lavagno'
+  },
+  nroFactura: 1067,
+  totalFactura: 9800
+}
+

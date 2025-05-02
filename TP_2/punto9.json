@@ -1,0 +1,23 @@
+--  9. Ordenar por ingresos ascendente, omitir 1ro y mostrar 2do y 3ro
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: "$item.producto",
+      totalCantidad: { $sum: "$item.cantidad" },
+      totalIngresos: { $sum: { $multiply: ["$item.precio", "$item.cantidad"] } }
+  }},
+  { $sort: { totalIngresos: 1 } },
+  { $skip: 1 },
+  { $limit: 2 }
+]);
+
+{
+  _id: 'TUERCA 2mm',
+  totalCantidad: 112,
+  totalIngresos: 6720
+}
+{
+  _id: 'SET HERRAMIENTAS',
+  totalCantidad: 28,
+  totalIngresos: 19600
+}

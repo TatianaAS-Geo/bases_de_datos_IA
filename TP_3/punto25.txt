@@ -1,0 +1,8 @@
+¿Mario López puede llegar a Jorge Lupis con CONOCE_A directa o indirectamente?
+
+MATCH (a:Persona {nombre: "Mario", apellido: "López"}),
+      (b:Persona {nombre: "Jorge", apellido: "Lupis"})
+RETURN EXISTS( (a)-[:CONOCE_A*1..]->(b) ) AS conectado
+
+conectado
+false

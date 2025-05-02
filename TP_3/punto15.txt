@@ -1,0 +1,19 @@
+15. Eliminar fecha de nacimiento y etiqueta Persona de Analía.
+
+MATCH (p:Persona {nombre: "Analía", apellido: "Martinelli"})
+REMOVE p.fechanac
+REMOVE p:Persona
+RETURN p
+
+{
+  "identity": 58,
+  "labels": [
+    "Empleado"
+  ],
+  "properties": {
+    "apellido": "Martinelli",
+    "nombre": "Analía",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:58"
+}

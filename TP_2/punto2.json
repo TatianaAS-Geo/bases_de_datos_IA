@@ -1,0 +1,18 @@
+-- Mostrar solo la región que tenga el menor ingreso (basado en total productos vendidos)
+
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { 
+    $group: {
+      _id: "$cliente.region",
+      totalProductosVendidos: { $sum: "$item.cantidad" }
+    }
+  },
+  { $sort: { totalProductosVendidos: 1 } },
+  { $limit: 1 }
+]);
+
+{
+  _id: 'NOA',
+  totalProductosVendidos: 14
+}

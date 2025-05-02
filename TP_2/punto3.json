@@ -1,0 +1,13 @@
+-- Mostrar solo las regiones que tengan una cantidad de productos vendidos superior a 10000
+
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { 
+    $group: {
+      _id: "$cliente.region",
+      totalProductosVendidos: { $sum: "$item.cantidad" }
+    }
+  },
+  { $match: { totalProductosVendidos: { $gt: 10000 } } }
+]);
+-- no hay regiones con productos vendidos mayores a 10000

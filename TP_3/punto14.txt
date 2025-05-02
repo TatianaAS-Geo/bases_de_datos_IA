@@ -1,0 +1,20 @@
+14. Agregar etiqueta "Empleado" y país Argentina a Analía.
+
+MATCH (p:Persona {nombre: "Analía", apellido: "Martinelli"})
+SET p:Empleado, p.pais = "Argentina"
+RETURN p
+
+{
+  "identity": 58,
+  "labels": [
+    "Persona",
+    "Empleado"
+  ],
+  "properties": {
+    "apellido": "Martinelli",
+    "fechanac": "30/06/1968",
+    "nombre": "Analía",
+    "pais": "Argentina"
+  },
+  "elementId": "4:13af1b38-6144-4a56-90ff-72bb09e9f3d1:58"
+}

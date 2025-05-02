@@ -1,0 +1,11 @@
+-- 12. Total gastado por persona, mostrar los que gastaron > 3100000
+db.facturas.aggregate([
+  { $unwind: "$item" },
+  { $group: {
+      _id: { nombreCompleto: { $concat: ["$cliente.nombre", " ", "$cliente.apellido"] } },
+      totalGastado: { $sum: { $multiply: ["$item.precio", "$item.cantidad"] } }
+  }},
+  { $match: { totalGastado: { $gt: 3100000 } } }
+]);
+
+-- no hay resultado
